@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Междисциплинарный квест: Химия + Биология</title>
+    <title>Квест: Магия живой природы</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,6 +28,14 @@
             text-align: center;
             color: #2c3e50;
             font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
         .step {
             display: none;
@@ -35,10 +43,22 @@
         .step.active {
             display: block;
         }
+        .block-title {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         .question {
             font-size: 18px;
             margin-bottom: 15px;
             font-weight: bold;
+            line-height: 1.4;
         }
         .options {
             display: flex;
@@ -85,6 +105,7 @@
             font-weight: bold;
             margin-top: 20px;
             color: #2c3e50;
+            line-height: 1.5;
         }
         .explanation {
             font-size: 14px;
@@ -97,12 +118,14 @@
 <body>
 
 <div class="container">
-    <h1>🧪 Квест: Тайны жизни 🧬</h1>
-    <p style="text-align: center;">Проверь свои знания на стыке химии и биологии!</p>
+    <h1>🧪 Квест: Магия живой природы 🌿</h1>
+    <div class="progress-bar" id="progress-text">Блок 1 из 4</div>
 
-    <!-- ЭТАП 1: Неорганическая химия -->
+    <!-- ================= БЛОК 1: ХИМИЯ ================= -->
+    <!-- Часть 1.1 -->
     <div class="step active" id="step1">
-        <div class="question">1. Неорганическая химия. Какое вещество является основой жизни на Земле и входит в состав всех клеток?</div>
+        <div class="block-title">Блок 1: Химия (Часть 1)</div>
+        <div class="question">Какое вещество является основой жизни на Земле и входит в состав всех клеток?</div>
         <div class="options" id="options1">
             <button class="btn-answer" onclick="checkAnswer(1, this, true)">Вода (H₂O)</button>
             <button class="btn-answer" onclick="checkAnswer(1, this, false)">Углекислый газ (CO₂)</button>
@@ -111,9 +134,10 @@
         <div class="explanation" id="exp1"></div>
     </div>
 
-    <!-- ЭТАП 2: Органическая химия -->
+    <!-- Часть 1.2 -->
     <div class="step" id="step2">
-        <div class="question">2. Органическая химия. Какой химический элемент является основой всех органических соединений (белков, жиров, углеводов)?</div>
+        <div class="block-title">Блок 1: Химия (Часть 2)</div>
+        <div class="question">Какой химический элемент является основой всех органических соединений (белков, жиров, углеводов)?</div>
         <div class="options" id="options2">
             <button class="btn-answer" onclick="checkAnswer(2, this, false)">Кислород</button>
             <button class="btn-answer" onclick="checkAnswer(2, this, true)">Углерод</button>
@@ -122,8 +146,83 @@
         <div class="explanation" id="exp2"></div>
     </div>
 
-    <!-- ФИНАЛ -->
+    <!-- ================= БЛОК 2: БОТАНИКА ================= -->
+    <!-- Часть 2.1 -->
     <div class="step" id="step3">
+        <div class="block-title">Блок 2: Ботаника (Часть 1)</div>
+        <div class="question">Как называется процесс, при котором растения на свету превращают воду и углекислый газ в кислород и глюкозу?</div>
+        <div class="options" id="options3">
+            <button class="btn-answer" onclick="checkAnswer(3, this, false)">Дыхание</button>
+            <button class="btn-answer" onclick="checkAnswer(3, this, true)">Фотосинтез</button>
+            <button class="btn-answer" onclick="checkAnswer(3, this, false)">Транспирация</button>
+        </div>
+        <div class="explanation" id="exp3"></div>
+    </div>
+
+    <!-- Часть 2.2 -->
+    <div class="step" id="step4">
+        <div class="block-title">Блок 2: Ботаника (Часть 2)</div>
+        <div class="question">Какой органоид растительной клетки отвечает за зеленый цвет и фотосинтез?</div>
+        <div class="options" id="options4">
+            <button class="btn-answer" onclick="checkAnswer(4, this, true)">Хлоропласт</button>
+            <button class="btn-answer" onclick="checkAnswer(4, this, false)">Ядро</button>
+            <button class="btn-answer" onclick="checkAnswer(4, this, false)">Вакуоль</button>
+        </div>
+        <div class="explanation" id="exp4"></div>
+    </div>
+
+    <!-- ================= БЛОК 3: ГЕНЕТИКА ================= -->
+    <!-- Часть 3.1 -->
+    <div class="step" id="step5">
+        <div class="block-title">Блок 3: Генетика (Часть 1)</div>
+        <div class="question">С каким нуклеотидом в молекуле ДНК комплементарен аденин (А)?</div>
+        <div class="options" id="options5">
+            <button class="btn-answer" onclick="checkAnswer(5, this, true)">Тимин (Т)</button>
+            <button class="btn-answer" onclick="checkAnswer(5, this, false)">Гуанин (Г)</button>
+            <button class="btn-answer" onclick="checkAnswer(5, this, false)">Цитозин (Ц)</button>
+        </div>
+        <div class="explanation" id="exp5"></div>
+    </div>
+
+    <!-- Часть 3.2 -->
+    <div class="step" id="step6">
+        <div class="block-title">Блок 3: Генетика (Часть 2)</div>
+        <div class="question">Если у растения доминирует красный цвет (А) над белым (а), какой цвет будет у потомства с генотипом Аа?</div>
+        <div class="options" id="options6">
+            <button class="btn-answer" onclick="checkAnswer(6, this, true)">Красный</button>
+            <button class="btn-answer" onclick="checkAnswer(6, this, false)">Белый</button>
+            <button class="btn-answer" onclick="checkAnswer(6, this, false)">Розовый</button>
+        </div>
+        <div class="explanation" id="exp6"></div>
+    </div>
+
+    <!-- ================= БЛОК 4: БИОЛОГИЯ ================= -->
+    <!-- Часть 4.1 -->
+    <div class="step" id="step7">
+        <div class="block-title">Блок 4: Биология (Часть 1)</div>
+        <div class="question">Кто в пищевой цепочке «Трава → Заяц → Лиса» является консументом (потребителем) 1-го порядка?</div>
+        <div class="options" id="options7">
+            <button class="btn-answer" onclick="checkAnswer(7, this, false)">Трава</button>
+            <button class="btn-answer" onclick="checkAnswer(7, this, true)">Заяц</button>
+            <button class="btn-answer" onclick="checkAnswer(7, this, false)">Лиса</button>
+        </div>
+        <div class="explanation" id="exp7"></div>
+    </div>
+
+    <!-- Часть 4.2 -->
+    <div class="step" id="step8">
+        <div class="block-title">Блок 4: Биология (Часть 2)</div>
+        <div class="question">Что выделяется в результате клеточного дыхания, что также важно для фотосинтеза?</div>
+        <div class="options" id="options8">
+            <button class="btn-answer" onclick="checkAnswer(8, this, false)">Кислород</button>
+            <button class="btn-answer" onclick="checkAnswer(8, this, true)">Углекислый газ</button>
+            <button class="btn-answer" onclick="checkAnswer(8, this, false)">Азот</button>
+        </div>
+        <div class="explanation" id="exp8"></div>
+    </div>
+
+    <!-- ФИНАЛ -->
+    <div class="step" id="step9">
         <div class="result" id="final-result"></div>
         <button onclick="location.reload()" style="width: 100%; margin-top: 20px; background-color: #2c3e50;">Пройти заново</button>
     </div>
@@ -132,15 +231,16 @@
 
 <script>
     let score = 0;
+    const totalQuestions = 8;
 
     function checkAnswer(step, button, isCorrect) {
-        // Блокируем все кнопки в текущем шаге
+        // Блокируем кнопки
         const buttons = document.getElementById('options' + step).getElementsByTagName('button');
         for (let btn of buttons) {
             btn.disabled = true;
         }
 
-        // Подсвечиваем правильный/неправильный ответ
+        // Проверка ответа
         if (isCorrect) {
             button.classList.add('correct');
             score++;
@@ -148,7 +248,6 @@
         } else {
             button.classList.add('wrong');
             document.getElementById('exp' + step).innerText = "Неверно. Запомни правильный ответ!";
-            // Подсвечиваем правильный вариант зеленым для обучения
             for (let btn of buttons) {
                 if (btn.getAttribute('onclick').includes('true')) {
                     btn.classList.add('correct');
@@ -156,11 +255,18 @@
             }
         }
 
-        // Переход к следующему шагу через 2 секунды
+        // Смена индикатора прогресса (каждые 2 вопроса — новый блок)
+        let nextStep = step + 1;
+        if (nextStep <= 8) {
+            let blockNum = Math.ceil(nextStep / 2);
+            document.getElementById('progress-text').innerText = 'Блок ' + blockNum + ' из 4';
+        }
+
+        // Переход
         setTimeout(() => {
             document.getElementById('step' + step).classList.remove('active');
-            if (step < 2) {
-                document.getElementById('step' + (step + 1)).classList.add('active');
+            if (step < totalQuestions) {
+                document.getElementById('step' + nextStep).classList.add('active');
             } else {
                 showFinal();
             }
@@ -168,19 +274,20 @@
     }
 
     function showFinal() {
-        const finalStep = document.getElementById('step3');
+        const finalStep = document.getElementById('step9');
         const resultText = document.getElementById('final-result');
         
         finalStep.classList.add('active');
+        document.getElementById('progress-text').innerText = 'Квест завершен!';
         
-        if (score === 2) {
-            resultText.innerHTML = "🏆 Победа! Ты отлично разбираешься в химии и биологии!<br>Твой результат: 2 из 2.";
+        if (score === totalQuestions) {
+            resultText.innerHTML = "🏆 Победа! Ты настоящий магистр живой природы!<br>Твой результат: " + score + " из " + totalQuestions + ".";
             resultText.style.color = "#2ecc71";
-        } else if (score === 1) {
-            resultText.innerHTML = "👍 Неплохо! Ты на верном пути.<br>Твой результат: 1 из 2.";
+        } else if (score >= totalQuestions / 2) {
+            resultText.innerHTML = "👍 Хороший результат! Но есть куда расти.<br>Твой результат: " + score + " из " + totalQuestions + ".";
             resultText.style.color = "#f39c12";
         } else {
-            resultText.innerHTML = "📚 Нужно повторить материал. Попробуй еще раз!<br>Твой результат: 0 из 2.";
+            resultText.innerHTML = "📚 Стоит повторить материал и попробовать снова!<br>Твой результат: " + score + " из " + totalQuestions + ".";
             resultText.style.color = "#e74c3c";
         }
     }
